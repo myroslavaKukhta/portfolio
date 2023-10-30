@@ -1,45 +1,24 @@
 import React from 'react';
-import styled from "styled-components";
 import photo from './../../../assets/images/photo.jpg'
 import {FlexWrapper} from "../../../components/FlexWrapper";
+import {Container} from "../../../components/Container";
+import { S } from './Main_Styles';
 
-export const Main = () => {
-  return (
-    <StyledMain >
-      <FlexWrapper align={"center"} justify={"space-around"}>
-        <div>
-          <Congrats>Hi There</Congrats>
-          <Name>I am Myroslava Kukhta</Name>
-          <MainTitle>A Web Developer</MainTitle>
-        </div>
-
-        <StyledPhoto src={photo} alt=""/>
-      </FlexWrapper>
-
-    </StyledMain >
-  );
+export const Main: React.FC = () => {
+    return (
+        <S.Main>
+            <Container>
+                <FlexWrapper align={"center"} justify={"space-around"} wrap={"wrap"}>
+                    <div>
+                        <S.Congrats>Hi There</S.Congrats>
+                        <S.Name>I am <span>Myroslava Kukhta</span></S.Name>
+                        <S.MainTitle>A Web Developer</S.MainTitle>
+                    </div>
+                    <S.PhotoWrapper>
+                        <S.Photo src={photo} alt=""/>
+                    </S.PhotoWrapper>
+                </FlexWrapper>
+            </Container>
+        </S.Main>
+    );
 };
-
-const StyledMain = styled.div`
-  min-height: 100vh;
-  background-color: antiquewhite;
-`
-
-const StyledPhoto = styled.img`
-  width: 350px;
-  height: 430px;
-  object-fit: cover;
-`
-
-const MainTitle = styled.h1`
-  color: red;
-`
-
-const Name = styled.h2`
-  color: red;
-`
-
-const Congrats = styled.span`
-  color: red;
-`
-

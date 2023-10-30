@@ -1,51 +1,25 @@
 import React from 'react';
-import styled from "styled-components";
 import {FlexWrapper} from "../FlexWrapper";
+import {S} from './Slider_Styles'
 
-export const Slider = () => {
+export const Slider: React.FC = () => {
   return (
-    <StyledSlider>
+    <S.Slider>
       <FlexWrapper>
-        <Slide>
-          <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+        <S.Slide>
+          <S.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
             labore et dolore magna aliqua Ut enim.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
-          <Name>@Myr</Name>
-        </Slide>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.</S.Text>
+          <S.Name>@Myr</S.Name>
+        </S.Slide>
       </FlexWrapper>
-      <Pagination>
+      <S.Pagination>
         <span> </span>
+        <span className={"active"}> </span>
         <span> </span>
-        <span> </span>
-      </Pagination>
-    </StyledSlider>
+      </S.Pagination>
+    </S.Slider>
   );
 };
 
 
-const StyledSlider = styled.div`
-  border: 1px solid mediumvioletred;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-const Slide = styled.div`
-  text-align: center;
-`
-
-const Text = styled.p`
-`
-
-const Name = styled.span`
-`
-
-const Pagination = styled.span`
-  span {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 5px;
-    background-color: darkorange;
-  }
-`

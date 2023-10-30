@@ -1,52 +1,34 @@
 import React from 'react';
-import styled from "styled-components";
 import {Icon} from "../../components/icon/Icon";
 import {FlexWrapper} from "../../components/FlexWrapper";
+import {S} from './Footer_Styles'
 
-export const Footer = () => {
+const socialItemData = [
+    {
+      iconId: "telegram",
+    },
+    {
+      iconId: "fb",
+    }
+]
+export const Footer: React.FC = () => {
   return (
-    <StyledFooter>
+    <S.Footer>
       <FlexWrapper direction={"column"} align={"center"}>
-      <Name>Myroslava</Name>
-
-      <SocialList>
-        <SocialItem>
-          <SociaLink>
-            <Icon height={"31px"} width={"31px"}  iconId={"telegram"}/>
-            </SociaLink>
-        </SocialItem>
-
-        <SocialItem>
-          <SociaLink>
-            <Icon height={"31px"} width={"31px"}  iconId={"fb"}/>
-          </SociaLink>
-        </SocialItem>
-      </SocialList>
-      <Copyright>2023 Myroslava Kukhta, All rights reserved</Copyright>
+      <S.Name>Myroslava</S.Name>
+      <S.SocialList>
+          {socialItemData.map((s, index)=>{
+              return (<S.SocialItem key = {index}>
+                  <S.SocialLink>
+                      <Icon height={"30px"} width={"30px"} iconId={s.iconId}/>
+                  </S.SocialLink>
+              </S.SocialItem>
+              )
+          })}
+      </S.SocialList>
+      <S.Copyright>2023 Myroslava Kukhta, All rights reserved</S.Copyright>
       </FlexWrapper>
-    </StyledFooter>
+    </S.Footer>
   );
 };
 
-const StyledFooter = styled.footer`
-  background-color: yellow;
-  min-height: 20vh;
-`
-
-const Name = styled.span`
-`
-
-const SocialList = styled.ul`
-  display: flex;
-  gap: 30px;
-  
-`
-
-const SocialItem = styled.li`
-`
-
-const SociaLink = styled.a`
-`
-
-const Copyright = styled.small`
-`
