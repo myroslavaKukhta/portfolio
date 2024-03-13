@@ -17,16 +17,18 @@ export const Footer: React.FC = () => {
       <FlexWrapper direction={"column"} align={"center"}>
       <S.Name>Myroslava</S.Name>
       <S.SocialList>
-          {socialItemData.map((s, index)=>{
+
+          {socialItemData.map((s, index)=> {
               return (<S.SocialItem key = {index}>
                   <S.SocialLink>
-                      <Icon height={"30px"} width={"30px"} iconId={s.iconId}/>
+                      <Icon iconId={s.iconId}/>
                   </S.SocialLink>
               </S.SocialItem>
               )
           })}
+
       </S.SocialList>
-      <S.Copyright>2023 Myroslava Kukhta, All rights reserved</S.Copyright>
+      <S.Copyright> © 2023 Myroslava Kukhta, All rights reserved</S.Copyright>
       </FlexWrapper>
     </S.Footer>
   );

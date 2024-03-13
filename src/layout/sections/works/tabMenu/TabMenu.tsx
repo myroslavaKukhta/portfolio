@@ -1,26 +1,42 @@
 import React from 'react';
 import styled from "styled-components";
+import {Link} from "../../../../components/Link";
 
+export type tabsStatusType = "all" | "landing" | "react" | "spa";
 
-export const Menu = (props: { menuItems: Array<string> }) => {
+type tabMenuPropsType = {
+tabsItems: Array<{status: tabsStatusType,
+    title: string}>,
+
+    changeFilterStatus: (value: tabsStatusType) => void
+    currentFilterStatus: string
+}
+export const TabMenu = (props: tabMenuPropsType) => {
   return (
-    <StyledMenu>
+    <StyledTabMenu>
       <ul>
-        {props.menuItems.map((item: string, index) => {
-          return <li key={index}>
-            <a href="">{item}</a>
-          </li>
+        {props.tabsItems.map((item, index) => {
+          return <ListItem key={index}>
+            <Link active={props.currentFilterStatus === item.status} as={"button"} onClick={() => {props.changeFilterStatus(item.status)}}>{item.title}</Link >
+          </ListItem>
         })}
       </ul>
-    </StyledMenu>
+    </StyledTabMenu>
   );
 };
 
 
-const StyledMenu = styled.nav`
+const StyledTabMenu = styled.nav`
   ul {
     display: flex;
-    gap: 30px;
-    justify-content: center;
+    justify-content: space-between;
+    max-width: 352px;
+    width: 100%;
+    margin: 0 auto 40px;
   }
+`
+
+const ListItem = styled.li`
+ position: relative;
+  z-index: 0;
 `
